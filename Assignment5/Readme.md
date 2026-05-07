@@ -27,37 +27,37 @@ This repository contains two independent Python + MySQL projects:
 3. Run the Python script:
    ```bash
    python store_db.py
-Check the console for query outputs.
+4. Check the console for query outputs.
 
-Verify revenue_report.csv is created in the project directory.
+5. Verify revenue_report.csv is created in the project directory.
 
 📡 Task 2 · API Monitor with Change Detection
 Overview
-Database: monitor_db
+- Database: monitor_db
 
-Tables:
+- Tables:
 
-posts: stores fetched API data
+    -posts: stores fetched API data
 
-change_log: records what changed and when
+    -change_log: records what changed and when
 
 API: JSONPlaceholder Posts
 
-Behavior:
+-Behavior:
 
-First run: inserts all posts, logs each as NEW
+-First run: inserts all posts, logs each as NEW
 
-Subsequent runs: detects mismatches (e.g., after manual DB update) and logs as MODIFIED
+-Subsequent runs: detects mismatches (e.g., after manual DB update) and logs as MODIFIED
 
-Reports:
+-Reports:
 
-Post count per user
+1. Post count per user
 
-All change log entries from the latest run
+2. All change log entries from the latest run
 
-User who triggered the most change events
+3. User who triggered the most change events
 
-Error handling: Every API call and DB operation wrapped in try/except with printed error messages
+- Error handling: Every API call and DB operation wrapped in try/except with printed error messages
 
 How to Run
 Ensure MySQL server is running and accessible.
@@ -66,57 +66,59 @@ Update connection credentials in the script (user, password).
 
 Run the Python script:
 
-bash
-python api_monitor.py
-On first run, all posts are inserted and logged as NEW.
+bash:
+#python api_monitor.py
 
-To simulate a change:
+4. On first run, all posts are inserted and logged as NEW.
+
+5. To simulate a change:
 
 sql
 UPDATE monitor_db.posts SET title='Changed' WHERE id=1;
 Then rerun the script — the mismatch will be detected and logged as MODIFIED.
 
 🛠 Requirements
-Python 3.8+
+- Python 3.8+
 
-MySQL server
+- MySQL server
 
-Packages:
+- Packages:
 
-bash
-pip install mysql-connector-python requests
+#bash
+#pip install mysql-connector-python requests
+
 📂 Deliverables
-store_db.py — Store database system script
+- store_db.py — Store database system script
 
-revenue_report.csv — Exported revenue report
+- revenue_report.csv — Exported revenue report
 
-api_monitor.py — API monitor script
+- api_monitor.py — API monitor script
 
-README.md — Documentation
+- README.md — Documentation
 
 🚀 Notes
-Both scripts are idempotent: tables are created if not existing, and inserts are safe to rerun.
+- Both scripts are idempotent: tables are created if not existing, and inserts are safe to rerun.
 
-Prices use DECIMAL(10,2) for accuracy.
+- Prices use DECIMAL(10,2) for accuracy.
 
-Change detection compares both title and body fields.
+- Change detection compares both title and body fields.
 
-Error handling ensures resilience against API or DB failures.
+- Error handling ensures resilience against API or DB failures.
 
 📊 Example Outputs
-Total Money Spent Per Customer
+- Total Money Spent Per Customer
 
-Most Ordered Product
+- Most Ordered Product
 
-Customers with More Than 2 Orders
+- Customers with More Than 2 Orders
 
-Average Order Value Per City
+- Average Order Value Per City
 
-Post Count Per User
+- Post Count Per User
 
-Latest Change Log Entries
+- Latest Change Log Entries
 
-User with Most Changes
+- User with Most Changes
 
 📌 Author
 Developed by Simran · Kathmandu, Nepal
